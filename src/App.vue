@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <transition name="view" appear enter-active-class="animated zoomInRight delay" leave-active-class="animated zoomOutLeft">
+    <transition name="view" appear enter-active-class="animated zoomInRight delay" leave-active-class="animated zomOutLeft">
       <router-view/>
     </transition>
   </div>

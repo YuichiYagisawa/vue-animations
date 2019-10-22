@@ -18,6 +18,12 @@
         <img v-if="animated" alt="Vue logo" src="../assets/logo.png">
       </transition>
     </section>
+
+    <div class="book">
+      <div class="book__page"></div>
+      <div class="book__page"></div>
+      <div class="book__page"></div>
+    </div>
   </div>
 </template>
 
@@ -36,7 +42,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+
 section {
   height: 200px;
 }
@@ -83,5 +91,82 @@ section {
     opacity: 1;
   }
   
+}
+
+
+body{
+  width:100%;
+  height:100vh;
+  background:#ffffff;
+}
+.book{
+  top: 50%;
+  transform: translateY(-50%);
+  position:relative;
+  margin:0 auto;
+  border:5px solid #000000;
+  width:100px;
+  height:60px;
+}
+.book__page{
+  position:absolute;
+  left:50%;
+  top:-5px;
+  margin:0 auto;
+  border-top:5px solid #000000;
+  border-bottom:5px solid #000000;
+  border-right:5px solid #000000;
+  background: #ffffff;
+  width:50px;
+  height:60px;
+  transform-origin:0% 50%;
+  animation:flip 1.2s infinite linear;
+  animation-fill-mode:forwards;
+  
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) { 
+      z-index:-$i;
+      animation-delay:1.4s*$i;
+    }
+  }
+}
+
+@keyframes flip {
+  0%{
+      transform: perspective( 600px )
+      rotateY( -0deg );
+  }
+  
+  20%{
+    background:darken(#ffffff,10%);
+  }
+  
+  29.9%{
+      background:darken(#ffffff,10%);
+  }
+  30%{
+      transform: perspective( 200px )
+      rotateY( -90deg );
+      background:#ffffff;
+  }
+  
+  54.999%{
+    opacity:1;
+  }
+  55%{
+    opacity:0;
+  }
+  
+  60%{
+    transform: perspective( 200px )
+    rotateY( -180deg );
+    background:#ffffff;
+  }
+  
+  100%{
+    transform: perspective( 200px )
+    rotateY( -180deg );
+    background:#ffffff;
+  }
 }
 </style>
