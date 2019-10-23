@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <transition name="view" appear enter-active-class="animated zoomInRight delay" leave-active-class="animated zomOutLeft">
+    <transition name="view" appear enter-active-class="animated fadeIn delay" leave-active-class="animated fadeOut">
       <router-view/>
     </transition>
   </div>
@@ -33,6 +33,6 @@
 }
 
 .delay{
-  animation-delay: .5s;
+  animation-delay: 1s;
 }
 </style>
